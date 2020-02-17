@@ -31,6 +31,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-8 col-sm-12 py-3 mx-auto pt-5">
+                <div class="section-title my-3 center">
+                    <h5>FORM</h5>
+                </div>
+                <form id="insert-form" class="row" method="post">
+                    <input type="text" id="image_map" name="image_map" hidden>
+                    <div class="form-group col-lg-6 col-md-12">
+                        <label for="start_time">행사 시작일</label>
+                        <input type="text" id="start_time" name="start_time" class="form-control" required placeholder="ex: 20-02-17">
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12">
+                        <label for="end_time">행사 종료일</label>
+                        <input type="text" id="end_time" name="end_time" class="form-control" required placeholder="ex: 20-02-18">
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12">
+                        <label for="view_scale">참관 가능인원</label>
+                        <input type="text" id="view_scale" name="view_scale" class="form-control" required placeholder="ex: 600">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-blue mx-3 py-1" style="height: calc(1.5em + 0.75rem + 2px); margin-top: 32px">등록하기</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <input type="checkbox" id="form-fade" hidden checked>
         <div id="manage-form">
@@ -66,5 +89,14 @@
     <script>
         window.addEventListener("load", () => {
             let boothMap = new App("#management");
+
+            let $form = document.querySelector("#insert-form");
+            let $i_image = document.querySelector("#image_map");
+            $form.addEventListener("submit", e => {
+                e.preventDefault();
+                let $img = boothMap.current.toImage().querySelector("img");
+                $i_image.value = $img.src;
+                $form.submit();
+            });
         });
     </script>

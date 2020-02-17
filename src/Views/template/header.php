@@ -14,7 +14,7 @@
     <?php if(session()->has("toast-message")):?>
         <script>
             window.onload = function(){
-                toast("<?= session()->get("toast-message") ?>", "<?=session()->get("toast-type") ? "bg-primary" : "bg-danger"?>");
+                toast(`<?= session()->get("toast-message") ?>`, "<?=session()->get("toast-type") ? "bg-primary" : "bg-danger"?>");
             }
         </script>
     <?php endif;?>
@@ -53,7 +53,7 @@
                         <a href="/bimos/history">모터쇼 연혁</a>
                     </div>
                 </div>
-                <div class="item"><a href="/#">예매하기</a></div>
+                <div class="item"><a href="/reserve">예매하기</a></div>
                 <div class="item">
                     <a href="/#">관람안내</a>
                     <div class="sub-nav">

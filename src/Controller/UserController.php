@@ -16,13 +16,27 @@ class UserController {
         if(strlen($password) < 4) back("비밀번호는 최소 4자리 이상이여야 합니다.");
         if($password !== $passconf) back("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 
+        $q = DB::query("SELECT * FROM users WHERE identity = ?", [$identity]);
+        if($q->rowCount() >= 1){
+            back("해당 아이디를 지닌 유저가 이미 존재합니다.");
+            exit;
+        }
+
         $result = DB::query("INSERT INTO users(identity, name, password, type) VALUES (?, ?, ?, ?)", [$identity, $name, hash("sha256", $password), $type]);
 
         if($result->rowCount() !== 1) back("회원정보를 추가하는 도중 문제가 발생했습니다.");
-        else redirect("/users/login" ,"회원가입 되었습니다.", 1);
+        else redirect("/" ,"회원가입 되었습니다.", 1);
     }
 
     public function loginPage(){
+        $q = DB::query("SELECT * FROM users WHERE identity = 'admin'");
+        if($q->rowCount() === 0){
+            $identity = "admin";
+            $password = hash("sha256", "1234");
+            $name = "관리자";
+            DB::query("INSERT INTO users(identity, password, name) VALUES (?, ?, ?)", [$identity, $password, $name]);
+        }
+
         view("login");
     }
 

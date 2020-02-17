@@ -14,6 +14,10 @@ class Router {
             redirect("/", "로그인 후엔 이용하실 수 없습니다.");
             exit;
         }
+        else if($perType === "admin" && !admin()){
+            redirect("/", "관리자만 접근 가능합니다.");
+            exit;
+        }
     }
 
     public function currentURL(){

@@ -5,6 +5,7 @@
     --gray: #909090;
     --white: #F8F8F8;
     --blue: #3e65e6;
+    --da: #DFDFDF;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: "나눔스퀘어", sans-serif; }

@@ -7,8 +7,13 @@ use Areuka\Engine\Router;
  * Main
  */
 Router::get("/", "MainController@indexPage");
+
 Router::get("/bimos/info", "MainController@infoPage");
 Router::get("/bimos/history", "MainController@historyPage");
+
+Router::get("/reserve", "MainController@reservePage", "user");
+Router::post("/reserve", "MainController@reserve", "user");
+Router::get("/reserve/graph/{schedule_id}", "MainController@reserveGraph", "user");
 
 
 /**
@@ -27,6 +32,7 @@ Router::get("/bimos/history", "MainController@historyPage");
 /**
  * Admin
  */
-Router::get("/admin/site-management", "AdminController@managePage");
+Router::get("/admin/site-management", "AdminController@managePage", "admin");
+Router::post("/admin/site-management", "AdminController@addSchedule", "admin");
 
 Router::execute();
