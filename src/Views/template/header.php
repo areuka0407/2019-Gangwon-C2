@@ -25,8 +25,13 @@
       <div id="top" class="d-none d-lg-block">
         <div class="container-lg d-flex justify-content-between align-items-center flex-lg-row">
             <div class="my-2">
-                <p class="mb-0 d-inline-block"><a href="/users/login">로그인</a> 후 모든 서비스를 이용하실 수 있습니다.</p>
-                <p class="ml-2 mb-0 d-inline-block text-gray">계정이 없으신가요? <a href="/users/join">회원가입하기</a></p>
+                <?php if(user()):?>
+                    <p class="mb-0 d-inline-block"><span class="text-blue"><?= user()->name ?></span>님 안녕하세요!</p>
+                    <p class="mb-0 d-inline-block ml-2"><a href="/users/logout">로그아웃</a></p>
+                <?php else: ?>
+                    <p class="mb-0 d-inline-block"><a href="/users/login">로그인</a> 후 모든 서비스를 이용하실 수 있습니다.</p>
+                    <p class="ml-2 mb-0 d-inline-block text-gray">계정이 없으신가요? <a href="/users/join">회원가입하기</a></p>
+                <?php endif;?>
             </div>
             <div class="icons my-2">
                 <button><i class="fab fa-facebook-f"></i></button>

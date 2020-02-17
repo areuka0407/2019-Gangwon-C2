@@ -21,6 +21,8 @@ Router::get("/bimos/history", "MainController@historyPage");
  Router::get("/users/login", "UserController@loginPage", "guest");
  Router::post("/users/login", "UserController@login", "guest");
 
+ Router::get("/users/logout", "UserController@logout", "user");
+
 
 /**
  * Admin

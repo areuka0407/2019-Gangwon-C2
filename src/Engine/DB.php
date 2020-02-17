@@ -19,11 +19,11 @@ class DB {
     }
 
     public static function fetch($sql, $data = []){
-        return self::query($sql, $data)->fetch();
+        return self::query($sql, $data)->fetch(\PDO::FETCH_OBJ);
     }
 
     public static function fetchAll($sql, $data = []){
-        return self::query($sql, $data)->fetchAll();
+        return self::query($sql, $data)->fetchAll(\PDO::FETCH_OBJ);
     }
 
     public static function lastInsertId(){

@@ -1,6 +1,6 @@
 <div id="join">
     <div class="container padding">
-        <div class="section-title center">
+        <div class="section-title center mb-3">
             <h5>회원가입</h5>
         </div>
         <form method="post" autocomplete="FALSE" class="mx-auto col-lg-6 col-md-12">
@@ -19,6 +19,9 @@
             <div class="form-group">
                 <label for="passconf">비밀번호 확인</label>
                 <input type="password" id="passconf" class="form-control" name="passconf" required>
+            </div>
+            <div class="form-group">
+                <p class="text-muted">이미 계정을 가지고 계신가요? <a href="/users/login" class="text-blue">로그인하기</a></p>
             </div>
             <div class="form-group mb-5">
                 <label>회원 구분</label>

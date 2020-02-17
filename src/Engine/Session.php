@@ -20,4 +20,8 @@ class Session {
     public function has($name){
         return isset($_SESSION[$name]);
     }
+
+    public function remove($name){
+        unset($_SESSION[$name]);
+    }
 }

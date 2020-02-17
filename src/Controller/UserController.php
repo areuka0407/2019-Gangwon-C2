@@ -25,4 +25,21 @@ class UserController {
     public function loginPage(){
         view("login");
     }
+
+    public function login(){
+        emptyCheck();
+        extract($_POST);
+
+        $userInfo = DB::fetch("SELECT * FROM users WHERE identity = ?", [$identity]);
+        if(!$userInfo) return back("해당 아이디와 일치하는 유저를 찾을 수 없습니다.");
+        if($userInfo->password !== hash("sha256", $password)) return back("비밀번호가 일치하지 않습니다.");
+
+        session()->set("user", $userInfo);
+        redirect("/", "로그인 되었습니다.", 1);
+    }
+
+    public function logout(){
+        session()->remove("user");
+        redirect("/", "로그아웃 되었습니다.", 1);
+    }
 }
