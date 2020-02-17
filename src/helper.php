@@ -28,3 +28,11 @@ function back($message = null){
     echo "history.back();";
     echo "</script>";
 }
+
+function view($pageName, $data = []){
+    extract($data);
+
+    require __VIEW.DS."template".DS."header.php";
+    require __VIEW.DS.$pageName.".php";
+    require __VIEW.DS."template".DS."footer.php";
+}

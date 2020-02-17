@@ -1,109 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIMOS 2020 | 부산국제모터쇼</title>
-    <script src="js/jquery-3.4.1.slim.min.js"></script>
-    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
-    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="fontawesome-free-5.1.0-web/css/all.css">
-    <script src="fontawesome-free-5.1.0-web/js/all.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-     <input type="checkbox" id="sidebar-fade" hidden checked>
-      <!-- HEADER -->
-      <div id="top" class="d-none d-lg-block">
-        <div class="container-lg d-flex justify-content-between align-items-center flex-lg-row">
-            <div class="my-2">
-                <p class="mb-0 d-inline-block"><a href="#">로그인</a> 후 모든 서비스를 이용하실 수 있습니다.</p>
-                <p class="ml-2 mb-0 d-inline-block text-gray">계정이 없으신가요? <a href="#">회원가입하기</a></p>
-            </div>
-            <div class="icons my-2">
-                <button><i class="fab fa-facebook-f"></i></button>
-                <button><i class="fab fa-twitter"></i></button>
-                <button><i class="fab fa-google-plus-g"></i></button>
-            </div>
-        </div>
-    </div>
-    <div id="header">
-        <div class="container d-flex h-100 align-items-center justify-content-between position-relative">
-            <a href="index.html">
-                <img src="images/logo.png" alt="부산국제모터쇼">
-            </a>
-            <div id="nav" class="d-lg-flex d-none">
-                <div class="item">
-                    <a href="#">부산국제모터쇼</a>
-                    <div class="sub-nav">
-                        <a href="#">행사소개</a><a href="#">모터쇼 연혁</a>
-                    </div>
-                </div>
-                <div class="item"><a href="#">예매하기</a></div>
-                <div class="item">
-                    <a href="#">관람안내</a>
-                    <div class="sub-nav">
-                        <a href="#">부스배치도</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <a href="site-management.html">관리자</a>
-                    <div class="sub-nav">
-                        <a href="site-mangement.html">사이트 관리자</a><a href="#">부스신청</a>
-                    </div>
-                </div>
-            </div>
-            <label id="sidebar-fader" for="sidebar-fade" class="d-lg-none m-0">
-                <div></div>
-                <div></div>
-                <div></div>
-            </label>
-        </div>
-    </div>
-    <div id="mobile-sidebar" class="d-lg-none">
-        <div class="contents">
-            <h5 class="font-weight-bold">Page</h5>
-            <div class="list">
-                <div class="item">
-                    <a href="#">부산국제모터쇼</a>
-                    <div class="sub-list" data-no="2">
-                        <a href="#">행사소개</a>
-                        <a href="#">모터쇼 연혁</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <a href="#">예매하기</a>
-                </div>
-                <div class="item">
-                    <a href="#">관람안내</a>
-                    <div class="sub-list" data-no="1">
-                        <a href="#">부스배치도</a>
-                    </div>
-                </div>
-                <div class="item">
-                    <a href="#">관리자</a>
-                    <div class="sub-list" data-no="2">
-                        <a href="#">사이트 관리자</a>
-                        <a href="#">부스신청</a>
-                    </div>
-                </div>
-            </div>
-            <h5 class="mt-3 font-weight-bold">Acount</h5>
-            <div class="list">
-                <div class="item"><a href="#">로그인</a></div>
-                <div class="item"><a href="#">회원가입</a></div>
-            </div>
-            <h5 class="mt-3 font-weight-bold">Shere</h5>
-            <div class="icons">
-                <button><i class="fab fa-twitter"></i></button>
-                <button><i class="fab fa-facebook-f"></i></button>
-                <button><i class="fab fa-google-plus-g"></i></button>
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- VISUAL -->
     <div id="visual">
         <div class="images">
@@ -117,7 +11,7 @@
             <p class="mt-5 text-white-muted">Press Day 2020.5.28 (목)</p>
             <p class="text-white-muted">개막식 및 일반인 관람 2020.5.29(금) ~ 6.7(일)</p>
             <p class="text-white-muted">BEXCO전관 - 제1전시장, 제2전시장, 켄벤션홀, 오디토리움</p>
-            <a href="#bimos-2020">자세히 보기</a>
+            <a href="/#bimos-2020">자세히 보기</a>
         </div>
     </div>
 
@@ -229,7 +123,7 @@
                     <div class="title">AMG GLA 45</div>
                     <label for="gallery-detail-1" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/AMG GLA 45.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/AMG GLA 45.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-1"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -249,7 +143,7 @@
                     <div class="title">AMG GT</div>
                     <label for="gallery-detail-2" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/AMG GT.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/AMG GT.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-2"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -269,7 +163,7 @@
                     <div class="title">Boxster</div>
                     <label for="gallery-detail-3" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/Boxster.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/Boxster.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-3"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -289,7 +183,7 @@
                     <div class="title">California</div>
                     <label for="gallery-detail-4" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/California.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/California.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-4"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -309,7 +203,7 @@
                     <div class="title">Continental Flying Spur</div>
                     <label for="gallery-detail-5" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/Continental Flying Spur.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/Continental Flying Spur.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-5"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -329,7 +223,7 @@
                     <div class="title">DB11</div>
                     <label for="gallery-detail-6" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/DB11.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/DB11.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-6"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -349,7 +243,7 @@
                     <div class="title">Huracan</div>
                     <label for="gallery-detail-7" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/Huracan.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/Huracan.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-7"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -369,7 +263,7 @@
                     <div class="title">X6 M50d</div>
                     <label for="gallery-detail-8" class="gallery-detail">
                         <div>
-                            <img src="images/gallery/X6 M50d.jpg" alt="detail-image" width="800">
+                            <img src="/images/gallery/X6 M50d.jpg" alt="detail-image" width="800">
                             <label for="gallery-detail-8"><i class="fa fa-times"></i></label>
                         </div>
                     </label>
@@ -412,40 +306,14 @@
                         <h5>BANNER BOX</h5>
                     </div>
                     <div class="list">
-                        <img src="images/banner/banner1.jpg" alt="banner-image">
-                        <img src="images/banner/banner2.jpg" alt="banner-image">
-                        <img src="images/banner/banner3.jpg" alt="banner-image">
-                        <img src="images/banner/banner4.jpg" alt="banner-image">
+                        <img src="/images/banner/banner1.jpg" alt="banner-image">
+                        <img src="/images/banner/banner2.jpg" alt="banner-image">
+                        <img src="/images/banner/banner3.jpg" alt="banner-image">
+                        <img src="/images/banner/banner4.jpg" alt="banner-image">
                     </div>      
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <div id="footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-2 d-flex flex-column align-items-center">
-                    <a href="index.html" class="logo">
-                        <img src="images/logo.png" alt="부산국제모터쇼">
-                    </a>
-                    <div class="icons mt-4">
-                        <span><i class="fab fa-facebook-f"></i></span>
-                        <span><i class="fab fa-twitter"></i></span>
-                        <span><i class="fab fa-google-plus-g"></i></span>
-                    </div>
-                </div>
-                <div class="col-md-7 text-white-muted">
-                    <p>부산광역시 해운대구 APEC로 55, BEXCO (우48060)</p>
-                    <p>TEL : (051)740-3520, 3516  ｜  FAX : (051)740-3404   |   E-mail : bimos@bexco.co.kr </p>
-                    <p>Copyright(c) Busan International Motor Show. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-3">
-                    <div class="map"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+   
