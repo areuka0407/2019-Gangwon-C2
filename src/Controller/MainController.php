@@ -9,4 +9,8 @@ class MainController {
     function infoPage(){
         view("info");
     }
+
+    function historyPage(){
+        view("history");
+    }
 }

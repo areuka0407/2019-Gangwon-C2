@@ -29,7 +29,7 @@ class Router {
             $conName = "Areuka\\Controller\\{$action[0]}";
             $method = $action[1];
             $permission = isset($page[2]) ? $page[2] : null;
-
+            
             $regex = preg_replace("/{([^\\/]+)}/", "([^/]+)", $url);
             $regex = preg_replace("/\\//", "\\/", $regex);
             if(preg_match("/^{$regex}$/", $current_url, $matches)){
@@ -37,7 +37,7 @@ class Router {
                 
                 unset($matches[0]);
                 $con = new $conName();
-                $con->{$method}(...$arguments);
+                $con->{$method}(...$matches);
                 exit;
             }
         }

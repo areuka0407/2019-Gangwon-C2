@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="/fontawesome-free-5.1.0-web/css/all.css">
     <script src="/fontawesome-free-5.1.0-web/js/all.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js"></script>
+    <?php if(session()->has("toast-message")):?>
+        <script>
+            window.onload = function(){
+                toast("<?= session()->get("toast-message") ?>", "<?=session()->get("toast-type") ? "bg-primary" : "bg-danger"?>");
+            }
+        </script>
+    <?php endif;?>
 </head>
 <body>
      <input type="checkbox" id="sidebar-fade" hidden>
@@ -17,8 +25,8 @@
       <div id="top" class="d-none d-lg-block">
         <div class="container-lg d-flex justify-content-between align-items-center flex-lg-row">
             <div class="my-2">
-                <p class="mb-0 d-inline-block"><a href="/#">로그인</a> 후 모든 서비스를 이용하실 수 있습니다.</p>
-                <p class="ml-2 mb-0 d-inline-block text-gray">계정이 없으신가요? <a href="/#">회원가입하기</a></p>
+                <p class="mb-0 d-inline-block"><a href="/users/login">로그인</a> 후 모든 서비스를 이용하실 수 있습니다.</p>
+                <p class="ml-2 mb-0 d-inline-block text-gray">계정이 없으신가요? <a href="/users/join">회원가입하기</a></p>
             </div>
             <div class="icons my-2">
                 <button><i class="fab fa-facebook-f"></i></button>
@@ -34,10 +42,10 @@
             </a>
             <div id="nav" class="d-lg-flex d-none">
                 <div class="item">
-                    <a href="/info">부산국제모터쇼</a>
+                    <a href="/bimos/info">부산국제모터쇼</a>
                     <div class="sub-nav">
-                        <a href="/info">행사소개</a>
-                        <a href="/#">모터쇼 연혁</a>
+                        <a href="/bimos/info">행사소개</a>
+                        <a href="/bimos/history">모터쇼 연혁</a>
                     </div>
                 </div>
                 <div class="item"><a href="/#">예매하기</a></div>
