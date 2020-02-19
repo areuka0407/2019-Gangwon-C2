@@ -64,7 +64,7 @@
                     <a href="/admin/site-management">관리자</a>
                     <div class="sub-nav">
                         <a href="/admin/site-management">사이트 관리자</a>
-                        <a href="/#">부스신청</a>
+                        <a href="/admin/request-booth">부스신청</a>
                     </div>
                 </div>
             </div>

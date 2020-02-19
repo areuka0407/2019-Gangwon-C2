@@ -4,6 +4,9 @@ namespace Areuka\Controller;
 use Areuka\Engine\DB;
 
 class AdminController {
+    /**
+     * 사이트 관리자
+     */
     function managePage(){
         view("management");
     }
@@ -11,7 +14,6 @@ class AdminController {
     function addSchedule(){
         emptyCheck();
         extract($_POST);
-        
         
         $_startTime = date("y-m-d", strtotime($start_time));
         $_endTime = date("y-m-d", strtotime($end_time));
@@ -25,8 +27,25 @@ class AdminController {
         $q = DB::query($sql, [$end_time, $start_time]);
         if($q->rowCount() > 0) back("해당 시간에는 이미 일정이 잡혀있습니다.\n다른 시간을 선택해 주십시오.");
         
-        DB::query("INSERT INTO schedules(imageData, startTime, endTime, viewScale) VALUES (?, ?, ?, ?)", [$image_map, $start_time, $end_time, $view_scale]);
+        DB::query("INSERT INTO schedules(imageData, startTime, endTime, viewScale, boothList) VALUES (?, ?, ?, ?, ?)", [$image_map, $start_time, $end_time, $view_scale, $booth_list]);
 
         return redirect("/admin/site-management", "새로운 일정이 추가되었습니다.", 1);
+    }
+
+    /**
+     * 부스 신청
+     */
+    function requestPage(){
+        $viewData['schedules'] = DB::fetchAll("SELECT * FROM schedules
+                                                WHERE timestamp(startTime) > NOW()");
+
+        view("request-booth", $viewData);  
+    }
+
+    function request(){
+        emptyCheck();
+        extract($_POST);
+
+        
     }
 }

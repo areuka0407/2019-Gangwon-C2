@@ -36,4 +36,13 @@ Router::get("/reserve/graph/{schedule_id}", "MainController@reserveGraph", "user
 Router::get("/admin/site-management", "AdminController@managePage", "admin");
 Router::post("/admin/site-management", "AdminController@addSchedule", "admin");
 
+Router::get("/admin/request-booth", "AdminController@requestPage", "company");
+
+
+/**
+ * AJAX
+ */
+Router::post("/get-list/{tableName}", "AjaxController@getList");
+Router::post("/get-item/{tableName}/{id}", "AjaxController@getItem");
+
 Router::execute();

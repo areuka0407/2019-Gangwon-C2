@@ -150,15 +150,15 @@ class Canvas {
         this.ctx.fillRect(left + x, top + y, width, height);
         this.ctx.fill();
 
-        if(this.guide){
-            this.ctx.fillStyle = "#fff";
-            this.ctx.font = "1em 나눔스퀘어";
-    
-            let measure = this.ctx.measureText(text);
-            x = left + x + width / 2 - measure.width / 2;
-            y = top + y + height / 2 + 3;
-            this.ctx.fillText(text, x, y);
-        }
+        
+        this.ctx.fillStyle = "#fff";
+        this.ctx.font = "1em 나눔스퀘어";
+
+        let measure = this.ctx.measureText(text);
+        x = left + x + width / 2 - measure.width / 2;
+        y = top + y + height / 2 + 3;
+        this.ctx.fillText(text, x, y);
+        
 
 
         this.ctx.restore();

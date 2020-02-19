@@ -47,7 +47,8 @@
                     <h5>FORM</h5>
                 </div>
                 <form id="insert-form" class="row" method="post">
-                    <input type="text" id="image_map" name="image_map" hidden>
+                    <input type="hidden" id="booth_list" name="booth_list">
+                    <input type="hidden" id="image_map" name="image_map">
                     <div class="form-group col-lg-6 col-md-12">
                         <label for="start_time">행사 시작일</label>
                         <input type="text" id="start_time" name="start_time" class="form-control" required placeholder="ex: 20-02-17">
@@ -103,10 +104,14 @@
 
             let $form = document.querySelector("#insert-form");
             let $i_image = document.querySelector("#image_map");
+            let $i_boothList = document.querySelector("#booth_list");
             $form.addEventListener("submit", e => {
                 e.preventDefault();
+
                 let $img = boothMap.current.toImage().querySelector("img");
                 $i_image.value = $img.src;
+
+                $i_boothList.value = JSON.stringify( boothMap.current.boothList.map(x => ({name: x.text, size: x.bl_w * x.bl_h})) );
                 $form.submit();
             });
         });
