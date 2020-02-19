@@ -26,6 +26,10 @@ class DB {
         return self::query($sql, $data)->fetchAll(\PDO::FETCH_OBJ);
     }
 
+    public static function find($table, $id){
+        return self::fetch("SELECT * FROM `{$table}` WHERE id = ?", [$id]);
+    }
+
     public static function lastInsertId(){
         return self::getConnect()->lastInsertId();
     }

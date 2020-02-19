@@ -13,6 +13,7 @@ Router::get("/bimos/history", "MainController@historyPage");
 
 Router::get("/reserve", "MainController@reservePage", "user");
 Router::post("/reserve", "MainController@reserve", "user");
+Router::get("/reserve/remove/{reserve_id}", "MainController@removeReserve", "user");
 Router::get("/reserve/graph/{schedule_id}", "MainController@reserveGraph", "user");
 
 

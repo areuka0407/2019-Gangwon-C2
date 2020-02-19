@@ -1,3 +1,14 @@
+ <!-- VISUAL -->
+ <div id="visual" class="no-move" style="height: 300px;">
+    <div class="images">
+        <div class="img" style="filter: brightness(30%);"></div>
+    </div>
+    <div class="container contents text-center">
+        <p>관리자 > 부스관리</p>
+        <h2>Booth Management</h2>
+    </div>
+</div>
+
 <!-- MANAGEMENT -->
 <div id="management">
         <div class="container-fluid padding">

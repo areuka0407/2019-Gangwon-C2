@@ -1,7 +1,18 @@
+ <!-- VISUAL -->
+ <div id="visual" class="no-move" style="height: 300px;">
+    <div class="images">
+        <div class="img" style="filter: brightness(30%);"></div>
+    </div>
+    <div class="container contents text-center">
+        <p>부산국제모터쇼 > 모터쇼 연혁</p>
+        <h2>Festival Infomation</h2>
+    </div>
+</div>
+<!-- Contents -->
 <div id="history">
     <div class="container padding">
         <div class="section-title">
-            <h1>모터쇼 연혁</h1>
+            <h1 description="부산국제모터쇼의 발자취">모터쇼 연혁</h1>
         </div>
         <div class="list d-flex flex-column">
         </div>

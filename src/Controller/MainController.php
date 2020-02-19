@@ -24,7 +24,7 @@ class MainController {
 
         $sql = "SELECT * FROM schedules S WHERE timestamp(S.endTime) > timestamp(?)";
         $data['scheduleList'] = DB::fetchAll($sql, [$tomorrow]);
-        $data['reserveList'] = DB::fetchAll("SELECT * FROM reserves R, schedules S WHERE R.schedule_id = S.id AND R.user_id = ?", [user()->id]);
+        $data['reserveList'] = DB::fetchAll("SELECT S.startTime, S.endTime, R.reserved_at, R.id FROM reserves R, schedules S WHERE R.schedule_id = S.id AND R.user_id = ?", [user()->id]);
 
         view("reserve", $data);
     }
@@ -33,13 +33,30 @@ class MainController {
         emptyCheck();
         extract($_POST);
 
-        $q = DB::query("SELECT * FROM schedules WHERE id = ?", [$schedule_id]);
-        if($q->rowCount() === 0) return back("해당 스케줄을 찾을 수 없습니다.");
+        $schedule = DB::fetch("SELECT * FROM schedules WHERE id = ?", [$schedule_id]);
+        if(!$schedule) return back("해당 스케줄을 찾을 수 없습니다.");
+        
+        $resCount = DB::fetch("SELECT COUNT(*) cnt FROM reserves WHERE schedule_id = ?", [$schedule->id])->cnt;
+        if($schedule->viewScale <= $resCount + 1) return back("이 행사는 예매인원이 초과되어 예약할 수 없습니다.");
 
         DB::query("INSERT INTO reserves(user_id, schedule_id) VALUES (?, ?)", [user()->id, $schedule_id]);
 
         redirect("/reserve", "예매가 완료되었습니다.", 1);
     }   
+
+    function removeReserve($reserve_id){
+        $tomorrow = strtotime(date("Y-m-d")) + 3600 * 24;
+        $reserve = DB::find("reserves", $reserve_id);
+        if(!$reserve) return back("취소할 예매 내역을 찾지 못했습니다.");
+        if($reserve->user_id != user()->id) return back("권한이 없습니다.");
+
+        $schedule = DB::find("schedules", $reserve->schedule_id);
+        if(!$schedule) return back("해당 행사를 찾을 수 없습니다.");
+        if(strtotime($schedule->endTime) <= $tomorrow) return back("행사 종료일이 최소 1일 이상 남을 경우에 한해서 취소가 가능합니다.");
+
+        DB::query("DELETE FROM reserves WHERE id = ?", [$reserve_id]);
+        return redirect("/reserve", "예매 취소가 완료되었습니다.", 1);
+    }
 
     function reserveGraph($schedule_id){
         $schedule = DB::fetch("SELECT * FROM schedules WHERE id = ?", [$schedule_id]);
@@ -99,4 +116,6 @@ class MainController {
         header("Content-Type: image/png");
         imagepng($img);
     }
+
+    
 }

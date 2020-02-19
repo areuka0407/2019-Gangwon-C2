@@ -1,7 +1,17 @@
+ <!-- VISUAL -->
+ <div id="visual" class="no-move" style="height: 300px;">
+    <div class="images">
+        <div class="img" style="filter: brightness(30%);"></div>
+    </div>
+    <div class="container contents text-center">
+        <p>예매하기 > 행사 예매</p>
+        <h2>Reserve Festival</h2>
+    </div>
+</div>
 <div id="reserve">
     <div class="container padding">
         <div class="section-title">
-            <h1>예매하기</h1>
+            <h1 description="원하는 행사를 예매하여 쾌적한 관람을 즐기세요!">예매하기</h1>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-12">
@@ -45,7 +55,7 @@
                                     <td><?=scheduleName($reserve)?></td>
                                     <td><?=date("Y년 m월 d일", strtotime($reserve->reserved_at))?></td>
                                     <td>
-                                        <button class="btn btn-danger">삭제</button>
+                                        <a href="/reserve/remove/<?= $reserve->id ?>" class="btn btn-danger text-white">취소</a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
