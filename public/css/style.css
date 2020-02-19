@@ -272,7 +272,7 @@ body { overflow-x: hidden; }
     }
 }
 
-#sponsor .list  .image { width: calc(100% / 11 - 10px); height: 100%; background-size: cover; margin: 0 5px;  }
+#sponsor .list  .image { width: calc(100% / 11 - 10px); height: 100%; background-size: cover; margin: 0 5px;  background-position: center center; }
 
 #sponsor .list .image:nth-child(1){ background-image: url(../images/sponsor_1.jpg); }
 #sponsor .list .image:nth-child(2){ background-image: url(../images/sponsor_2.jpg); }
@@ -362,7 +362,7 @@ body { overflow-x: hidden; }
 #notice .list { height: 120px; position: relative; overflow: hidden; }
 #notice .item {
     position: absolute; padding-left: 10px; height: 30px; width: 100%; left: 0; 
-    animation: notice 16s infinite;
+    animation: notice 16s infinite; display: flex; justify-content: space-between; align-items: center;
 }
 #notice .item::before {
     content: ''; position: absolute; left: 0; top: 50%; 
@@ -373,6 +373,9 @@ body { overflow-x: hidden; }
 #notice .item:nth-child(2){ animation-delay: -4.5s; }
 #notice .item:nth-child(3){ animation-delay: -8.5s; }
 #notice .item:nth-child(4){ animation-delay: -12.5s; }
+
+#notice .item .title { width: calc(100% - 140px); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+#notice .item .date { width: 120px; }
 
 @keyframes notice {
     0%          { top: calc(30px * 4); opacity: 0; }
@@ -390,7 +393,7 @@ body { overflow-x: hidden; }
 /* Banner
 */
 
-#banner .list { width: 495px; height: 184px; position: relative; overflow: hidden; }
+#banner .list { max-width: 495px; height: 184px; position: relative; overflow: hidden; }
 
 #banner .list img { position: absolute; top: 0; animation: banner 16s infinite; width: 100%; }
 
