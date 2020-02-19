@@ -53,7 +53,23 @@
                     </table>    
                 </div>
             </div>
-            <img src="" alt="" class="bg-primary col-lg-6 col-md-12" height="500">
+            <div id="graph-wrap" class="col-lg-6 col-md-12" style="height: 500px;"></div>
         </div>
     </div>
 </div>
+<script>
+    window.addEventListener("load", () => {
+        let img = document.querySelector("#graph-wrap");
+        document.querySelector("#schedule_id").addEventListener("input", e => {
+            let value = e.target.value;
+            img.style.background = "no-repeat url(/reserve/graph/"+value+")";
+            img.style.backgroundPosition = "center center";
+            console.log(img, "/reserve/graph/"+value);
+            // jQuery.ajax({
+            //     type: "image/png",
+            //     method: "get",
+                
+            // })
+        });
+    });
+</script>

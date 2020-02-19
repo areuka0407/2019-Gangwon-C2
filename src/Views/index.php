@@ -260,7 +260,7 @@
                             <label for="gallery-detail-8"><i class="fa fa-lg fa-search"></i></label>
                         </div>
                     </div>
-                    <div class="title">X6 M50d</div>
+                    <div class="title">X6 M50</div>
                     <label for="gallery-detail-8" class="gallery-detail">
                         <div>
                             <img src="/images/gallery/X6 M50d.jpg" alt="detail-image" width="800">
@@ -282,20 +282,20 @@
                     </div>
                     <div class="list">
                         <div class="item d-flex">
-                            <div class="col-8">2019부산국제모터쇼 경품행사안내</div>
-                            <div class="col-4">2019-06-15</div>
+                            <div class="title">2019부산국제모터쇼 경품행사안내</div>
+                            <div class="date">2019-06-15</div>
                         </div>
                         <div class="item d-flex">
-                            <div class="col-8">부대행사 및 동시행사 계획</div>
-                            <div class="col-4">2019-06-14</div>
+                            <div class="title">부대행사 및 동시행사 계획</div>
+                            <div class="date">2019-06-14</div>
                         </div>
                         <div class="item d-flex">
-                            <div class="col-8">스마트 벡스코 앱을 설치하시고 서비스..</div>
-                            <div class="col-4">2019-06-13</div>
+                            <div class="title">스마트 벡스코 앱을 설치하시고 서비스..</div>
+                            <div class="date">2019-06-13</div>
                         </div>
                         <div class="item d-flex">
-                            <div class="col-8">모바일 티켓을 간편하게 결제하세요.</div>
-                            <div class="col-4">2019-06-12</div>
+                            <div class="title">모바일 티켓을 간편하게 결제하세요.</div>
+                            <div class="date">2019-06-12</div>
                         </div>
                     </div>
                 </div>

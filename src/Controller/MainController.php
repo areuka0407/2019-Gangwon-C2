@@ -54,11 +54,12 @@ class MainController {
 
         $width = 500;
         $height = 500;
+        $fontFile = __PUBLIC.DS."fonts".DS."NanumSquareR.ttf";
         
         $img = imagecreatetruecolor($width, $height);
         
-        $background = imagecolorallocate($img, 255, 255, 255);
-        $textColor = imagecolorallocate($img, 128, 128, 128);
+        $background = imagecolorallocatealpha($img, 255, 255, 255, 0);
+        $textColor = imagecolorallocate($img, 255, 255, 255);
         $selected = \imagecolorallocate($img, 64, 103, 231);
         $non_selected = \imagecolorallocate($img, 224, 224, 224);
         $padding = 30;
@@ -67,24 +68,32 @@ class MainController {
         imagefilledrectangle($img, 0, 0, $width, $height, $background);
         
         // circle
-        $reserveEND = ceil(360 * $resCount / $viewScale);
+        $reserveEND = (int)ceil(360 * $resCount / $viewScale);
         imagefilledarc($img, $width / 2, $height / 2, $width - $padding, $height - $padding, 0, 360, $non_selected, IMG_ARC_PIE);
-        imagefilledarc($img, $width / 2, $height / 2, $width - $padding, $height - $padding, 0, $reserveEND, $selected, IMG_ARC_PIE);
+        ($reserveEND !== 0) && imagefilledarc($img, $width / 2, $height / 2, $width - $padding, $height - $padding, 0, $reserveEND, $selected, IMG_ARC_PIE);
 
         // infomation
         $t_padding = 20;
+        $textGap = 13;
         $t_width = 170;
-        $t_height = 200;
+        $t_height = 100;
         $t_x = $width - $t_width;
         $t_y = $height - $t_height;
         $t_background = imagecolorallocatealpha($img, 0, 0, 0, 64);
         imagefilledrectangle($img, $t_x, $t_y, $width, $height, $t_background);
         
+        $fontSize = 10;
         $rectSize = 10;
         $startX = $t_x + $t_padding;
         $startY = $t_y + $t_padding;
-        imagefilledrectangle($img, $startX, $startY, $startX + $rectSize, $startY + $rectSize, $selected);
-        // imagettftext($img, 14, 0, $startX + $rectSize + $padding, $startY, $textColor, )
+        imagefilledrectangle($img, $startX, $startY, $startX + $rectSize, $startY + $rectSize, $non_selected);
+        imagettftext($img, $fontSize, 0, $startX + $rectSize + $textGap / 2, $startY + $fontSize, $textColor, $fontFile, "예매 가능인원: {$viewScale}");
+
+        imagefilledrectangle($img, $startX, $startY + $textGap + $rectSize , $startX + $rectSize, $startY + $textGap + $rectSize * 2, $non_selected);
+        imagettftext($img, $fontSize, 0, $startX + $rectSize + $textGap / 2, $startY + $textGap + $rectSize + $fontSize, $textColor, $fontFile, "현재 예매인원: {$resCount}");
+
+        $reservePercent = number_format($resCount * 100 / $viewScale, 2);
+        imagettftext($img, $fontSize, 0, $startX, $startY + $textGap * 3 + $rectSize * 2, $textColor, $fontFile, "예매 비율: {$reservePercent}%");
 
         // echo
         header("Content-Type: image/png");
