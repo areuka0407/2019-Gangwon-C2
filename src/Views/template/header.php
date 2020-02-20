@@ -55,9 +55,9 @@
                 </div>
                 <div class="item"><a href="/reserve">예매하기</a></div>
                 <div class="item">
-                    <a href="/#">관람안내</a>
+                    <a href="/booth-map">관람안내</a>
                     <div class="sub-nav">
-                        <a href="/#">부스배치도</a>
+                        <a href="/booth-map">부스배치도</a>
                     </div>
                 </div>
                 <div class="item">

@@ -70,3 +70,11 @@ function scheduleName($scheduleObj){
     $result .= ")";
     return $result;
 }
+
+function array_flat($arr){
+    $result = [];
+    foreach($arr as $item){
+        $result = array_merge($result, is_array($item) ? array_flat($item) : [$item]);
+    }
+    return $result;
+}

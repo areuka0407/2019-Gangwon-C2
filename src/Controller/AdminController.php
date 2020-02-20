@@ -39,6 +39,13 @@ class AdminController {
         $viewData['schedules'] = DB::fetchAll("SELECT * FROM schedules
                                                 WHERE timestamp(startTime) > NOW()");
 
+        $viewData['myList'] = DB::fetchAll("SELECT S.startTime, S.endTime, B.requested_at, B.size, B.name
+                                            FROM schedules S, booths B
+                                            WHERE S.id = B.schedule_id AND B.user_id = ?", [user()->id]);
+
+        foreach($viewData['schedules'] as $sch) {
+            $sch->boothList = json_decode($sch->boothList);
+        }
         view("request-booth", $viewData);  
     }
 
@@ -46,6 +53,7 @@ class AdminController {
         emptyCheck();
         extract($_POST);
 
-        
+        DB::query("INSERT INTO booths(schedule_id, user_id, name, size) VALUES (?, ?, ?, ?)", [$schedule_id, user()->id, $booth_id, $booth_size]);
+        return redirect("/admin/request-booth", "요청이 완료되었습니다.");        
     }
 }

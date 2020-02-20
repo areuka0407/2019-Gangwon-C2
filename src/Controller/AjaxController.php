@@ -18,4 +18,9 @@ class AjaxController {
         $item = DB::find($table, $id);
         $this->output($item);
     }
+
+    function getBooths(){
+        $item = DB::fetchAll("SELECT B.*, U.name userName FROM booths B, users U where B.user_id = U.id");
+        $this->output($item);
+    }
 }

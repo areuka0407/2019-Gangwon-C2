@@ -18,12 +18,12 @@ class DB {
         return $q;
     }
 
-    public static function fetch($sql, $data = []){
-        return self::query($sql, $data)->fetch(\PDO::FETCH_OBJ);
+    public static function fetch($sql, $data = [], $fetchStyle = \PDO::FETCH_OBJ){
+        return self::query($sql, $data)->fetch($fetchStyle);
     }
 
-    public static function fetchAll($sql, $data = []){
-        return self::query($sql, $data)->fetchAll(\PDO::FETCH_OBJ);
+    public static function fetchAll($sql, $data = [], $fetchStyle = \PDO::FETCH_OBJ){
+        return self::query($sql, $data)->fetchAll($fetchStyle);
     }
 
     public static function find($table, $id){

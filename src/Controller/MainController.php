@@ -4,18 +4,22 @@ namespace Areuka\Controller;
 use Areuka\Engine\DB;
 
 class MainController {
+    // 메인 페이지
     function indexPage(){
         view("index");
     }
 
+    // 행사 소개 페이지
     function infoPage(){
         view("info");
     }
 
+    // 연혁 페이지
     function historyPage(){
         view("history");
     }
 
+    // 예약 페이지
     function reservePage(){
         $tomorrow = date("Y-m-d", time() + 3600 * 24);
         
@@ -117,5 +121,11 @@ class MainController {
         imagepng($img);
     }
 
-    
+    // 부스 배치도
+    function boothPage(){
+        $tomorrow = date("Y-m-d", time() + 3600 * 24);
+        $viewData['scheduleList'] = DB::fetchAll("SELECT * FROM schedules 
+                                                    WHERE timestamp(endTime) > timestamp(?) ORDER BY startTime ASC", [$tomorrow]);
+        view("booth-map", $viewData);
+    }   
 }
